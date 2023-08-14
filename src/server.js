@@ -3,7 +3,6 @@ import { routes } from "./routes.js";
 
 import { json } from "./middlewares/json.js";
 
-
 //-criar usurios
 //-listaçem usurios
 //-URl
@@ -26,15 +25,14 @@ import { json } from "./middlewares/json.js";
 
 //HTTP Status Code
 
-
-//Query Parameters: url Stateful => Filtros, paginação, não-obrigatorios 
+//Query Parameters: url Stateful => Filtros, paginação, não-obrigatorios
 // Route Parameters: indentificação de recurso
 // Request Body: Envio de informaçoes de um formulario (HTTPs)
 
 //http: //localhost:3333/users?userID=1&name=Thiago
 
-//GET http: //localhost:3333/users/1 
-//DELTE http://localhost:3333/users/1 [definque que o id 1 vai ser deletado ] 
+//GET http: //localhost:3333/users/1
+//DELTE http://localhost:3333/users/1 [definque que o id 1 vai ser deletado ]
 
 //post http: //localhost:3333/users
 
@@ -45,12 +43,12 @@ const server = http.createServer(async (req, res) => {
 
   await json(req, res);
 
-  const route = routes.find(route => {
-    return route.method === method && route.path === url  
-  })
-if (route){
-  return route.handler(req, res)
-}
+  const route = routes.find((route) => {
+    return route.method === method && route.path === url;
+  });
+  if (route) {
+    return route.handler(req, res);
+  }
 
   res.writeHead(404, { "Content-Type": "text/plain" }); // Correct usage of writeHead()
   return res.end("Not Found");
