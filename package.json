@@ -1,0 +1,18 @@
+{
+  "name": "01-fundamentos-nodejs",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "httpie": "^1.1.2",
+    "node-fetch": "^3.3.2",
+    "nodemodule": "^0.3.0"
+  }
+}
