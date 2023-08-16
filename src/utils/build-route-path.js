@@ -1,13 +1,15 @@
-// /users/:id
+
 
 export function buildRoutePath(path) {
-  const routeParamentersRegex = /:([a-zA-Z]+)/g;
+  const routeParametersRegex = /:([a-zA-Z]+)/g;
 
-  const pathWithParams=  path.replaceAll(routeParamentersRegex, ' ([a-z0-9\-_]+)')
+  const pathWithParams = path.replaceAll(
+    routeParametersRegex,
+    "(?<$1>[a-z0-9\-_]+)"
+  );
 
-  console.log(pathWithParams)
+ 
+  const pathRegex = new RegExp(`^${pathWithParams}(?<query>\\?(.*))?$`);
 
-  const test = /\/users\/([a-z0-9-_]+)/
-
-  const pathRegex  = new RegExp ('^${pathWithParams}')
+  return pathRegex;
 }
